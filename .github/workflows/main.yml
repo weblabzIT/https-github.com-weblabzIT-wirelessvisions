@@ -32,5 +32,5 @@ jobs:
         with:
           ftp-server: ftp://156.67.222.220
           ftp-username: u459876058.wirelessvision.co.uk
-          ftp-password: ${{ secrets.FTP_PASSWORD }}
+          ftp-password: Vikas@2023@
           local-dir: build/
