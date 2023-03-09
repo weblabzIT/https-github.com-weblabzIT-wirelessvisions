@@ -30,7 +30,7 @@ jobs:
       - name: FTP-Deploy-Action
         uses: SamKirkland/FTP-Deploy-Action@3.1.1
         with:
-          ftp-server: ftp://156.67.222.220
+          ftp-server: 156.67.222.220
           ftp-username: u459876058.wirelessvision.co.uk 
           ftp-password: ${{ secrets.FTP_PASSWORD }}
           local-dir: build/
