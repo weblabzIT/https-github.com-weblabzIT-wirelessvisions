@@ -30,7 +30,7 @@ jobs:
       - name: FTP-Deploy-Action
         uses: SamKirkland/FTP-Deploy-Action@3.1.1
         with:
-          ftp-server: sftp://sftp://156.67.222.220
-          ftp-username: u459876058.wirelessvision.co.uk
+          ftp-server: u459876058.wirelessvision.co.uk 
+          ftp-username: ftp://156.67.222.220
           ftp-password: Vikas@2023@
           local-dir: build/
