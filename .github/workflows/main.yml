@@ -1,36 +1,27 @@
-name: Build deploy website
-
-on:
-  push:
-    branches:
-      - main
-  pull_request:
-    branches:
-      - main
-
+on: push
+name: 🚀 Deploy website on push
 jobs:
-  build:
-    name: Build and deploy the website
+  web-deploy:
+    name: 🎉 Deploy
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v2
-    - uses: shivammathur/setup-php@v2
+    - name: 🚚 Get latest code
+      uses: actions/checkout@v3
+
+    - name: Use Node.js 16
+      uses: actions/setup-node@v2
       with:
-        php-version: '7.3'
-        tools: composer
-    - run: composer install
-    - uses: actions/setup-node@v1
-      with:
-        node-version: '12'
-    - run: npm install yarn
-    - run: yarn install
-    - run: yarn build
+        node-version: '16'
+      
+    - name: 🔨 Build Project
+      run: |
+        npm install
+        npm run build
     
-    - name: Deploy website with FTP
-      uses: SamKirkland/FTP-Deploy-Action@3.1.1
+    - name: 📂 Sync files
+      uses: SamKirkland/FTP-Deploy-Action@4.3.3
       with:
-        ftp-server: ftp://156.67.222.220 # configure .git-ftp-include
-        ftp-username: u459876058.wirelessvision.co.uk 
-        ftp-password: ${{ secrets.FTP_PASSWORD }}
-        local-dir: ./
-        git-ftp-args: --dry-run
+        server: ftp://156.67.222.220
+        username: u459876058.wirelessvision.co.uk
+        password: ${{ secrets.FTP_PASSWORD }}
+   
