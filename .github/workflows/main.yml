@@ -24,4 +24,6 @@ jobs:
         server: ftp://156.67.222.220
         username: u459876058.wirelessvision.co.uk
         password: ${{ secrets.FTP_PASSWORD }}
+
+        
    
